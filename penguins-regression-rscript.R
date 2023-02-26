@@ -1,36 +1,14 @@
----
-title: "Penguins testing"
-format: html
-editor: visual
----
-
-```{r}
-#| message: false
-
 library(palmerpenguins)
 library(tidyverse)
-```
 
-## Bill dimensions model (all species):
-
-```{r}
+# All species model: 
 bill_lm <- lm(bill_depth_mm ~ bill_length_mm, data = penguins)
-```
 
-```{r}
 summary(bill_lm)
-```
 
-## Chinstrap only:
-
-```{r}
+# Chinstrap only model: 
 chinstraps <- penguins |> filter(species == "Chinstrap")
-```
 
-```{r}
 chinstrap_bill_lm <- lm(bill_depth_mm ~ bill_length_mm, data = chinstraps)
-```
 
-```{r}
 summary(chinstrap_bill_lm)
-```
